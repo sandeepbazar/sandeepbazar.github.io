@@ -31,7 +31,6 @@ in-page anchors for this site's own sections and plain outbound links for the ot
 | `index.html` | The whole site: markup, styles and the career chart script |
 | `assets/profile.jpg` | Hero headshot (800x800). Replace this file to change the photo. |
 | `assets/running.jpg` | Photo for the endurance section |
-| `assets/SandeepBazar-Resume.pdf` | General resume offered for download |
 | `.github/workflows/pages.yml` | Static deploy to GitHub Pages |
 
 ## Editing
@@ -41,8 +40,11 @@ near the bottom of `index.html`: `STEPS` (role changes, as `{year, level, label}
 (milestones). Edit those and both views stay in sync. There is no hand-drawn SVG path to
 maintain.
 
-**Resume.** Regenerate with `build_resumes.py` in the jobs project, then copy the *General*
-variant here. The company-tailored versions are deliberately kept out of this repository.
+**Resume.** Do not put one here. Every variant `build_resumes.py` produces carries a phone
+number, an email address and a full postal location in its header, and anything in this
+repository is publicly downloadable and indexable. Resumes stay in the jobs project, under
+`Apply/`, which is not a git repository and never leaves the machine. Recruiters are pointed at
+LinkedIn instead.
 
 ## Checks worth repeating after an edit
 
@@ -51,3 +53,8 @@ variant here. The company-tailored versions are deliberately kept out of this re
 - `prefers-reduced-motion` disables the chart draw-on and scroll reveals.
 - Keyboard focus is visible, and every chart milestone is reachable by Tab.
 - The canonical link and the two Open Graph URLs still point at the root, not at `/About/`.
+- No email address, phone number, postal location or resume PDF anywhere in the repository:
+
+```sh
+grep -rn -iE "gmail|9545|tel:|mailto:|maharashtra|pune" . --exclude-dir=.git
+```
