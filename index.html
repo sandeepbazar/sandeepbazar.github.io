@@ -95,10 +95,12 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
 .nav-in{display:flex;align-items:center;gap:1.4rem;height:58px}
 .mark{font-family:var(--mono);font-weight:600;letter-spacing:.1em;color:var(--text);font-size:.86rem}
 .mark b{color:var(--signal)}
-.nav nav{margin-left:auto;display:flex;gap:1.3rem;flex-wrap:wrap}
+/* Never wrap: .nav-in is a fixed 58px, so a second row would spill out of the
+   header. The nav hides at the width where it would stop fitting instead. */
+.nav nav{margin-left:auto;display:flex;gap:1.3rem;flex-wrap:nowrap;white-space:nowrap}
 .nav nav a{font-size:.86rem;color:var(--muted);font-weight:500}
 .nav nav a:hover{color:var(--text);text-decoration:none}
-@media(max-width:720px){.nav nav{display:none}}
+@media(max-width:940px){.nav nav{display:none}}
 
 /* ---------- hero ---------- */
 .hero{padding-block:clamp(44px,7vw,78px) clamp(30px,4vw,44px)}
@@ -222,10 +224,22 @@ a.card .go{
 footer{
   border-top:1px solid var(--line);padding-block:1.8rem;
   font-family:var(--mono);font-size:.74rem;color:var(--dim);
-  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  display:grid;gap:1.1rem;
 }
+/* The directory of everything on this domain. The header stays in-page only,
+   so this and the Building cards are how a visitor reaches the other sites. */
+.sitemap{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;align-items:center}
+.sitemap a{color:var(--muted);font-size:.78rem}
+.sitemap a:hover{color:var(--signal)}
+.sitemap a[aria-current="page"]{color:var(--text);font-weight:600}
+.foot-meta{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 
 
+
+
+/* The wordmark is the way home from anywhere, so it has to look clickable. */
+a.mark{color:var(--text);text-decoration:none;transition:opacity .2s ease}
+a.mark:hover{opacity:.72;text-decoration:none}
 
 /* ---------- theme toggle ---------- */
 .tbtn{
@@ -242,7 +256,7 @@ footer{
 :root:not([data-theme="dark"]) .tbtn .moon{display:none}
 :root[data-theme="dark"] .tbtn .sun{display:none}
 :root[data-theme="dark"] .tbtn .moon{display:block}
-@media(max-width:720px){.nav nav{display:none}.tbtn{margin-left:auto}}
+@media(max-width:940px){.tbtn{margin-left:auto}}
 
 /* ================= pace line: the signature ================= */
 /* A single thread down the page. Fills as you descend, marks each
@@ -375,14 +389,13 @@ a.card:hover .go{transform:translateX(4px)}
 
 <header class="nav">
   <div class="wrap nav-in">
-    <span class="mark">SANDEEP<b>.</b>BAZAR</span>
+    <a class="mark" href="/" aria-label="Sandeep Bazar, home">SANDEEP<b>.</b>BAZAR</a>
     <nav>
       <a href="#track">Track record</a>
       <a href="#lead">How I lead</a>
       <a href="#work">Experience</a>
       <a href="#build">Building</a>
       <a href="#writing">Patents &amp; writing</a>
-      <a href="/blogs/">Blog</a>
       <a href="#contact">Contact</a>
     </nav>
     <button class="tbtn" id="themeBtn" type="button" aria-label="Switch to light theme">
@@ -565,8 +578,18 @@ a.card:hover .go{transform:translateX(4px)}
 </main>
 
 <footer class="wrap">
-  <span>© 2026 Sandeep Bazar</span>
-  <span>Built by hand · IBM Plex · no trackers</span>
+  <nav class="sitemap" aria-label="Everything on this domain">
+    <a href="/" aria-current="page">Home</a>
+    <a href="/blogs/">Writing</a>
+    <a href="/ai-roadmap-365/">365 Days of AI</a>
+    <a href="/ocm-mcp-server/">ocm-mcp-server</a>
+    <a href="https://github.com/sandeepbazar">GitHub</a>
+    <a href="https://www.linkedin.com/in/sandeepbazar/">LinkedIn</a>
+  </nav>
+  <div class="foot-meta">
+    <span>© 2026 Sandeep Bazar</span>
+    <span>Built by hand · IBM Plex · no trackers</span>
+  </div>
 </footer>
 
 <script>
