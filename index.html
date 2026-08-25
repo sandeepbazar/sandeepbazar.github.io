@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sandeep Bazar: Engineering Leader, Cloud Infrastructure</title>
+<meta name="description" content="Senior Development Manager at IBM Storage Fusion. Fourteen years building distributed storage, virtualization and Kubernetes platform infrastructure, and the teams that ship it.">
+<meta name="author" content="Sandeep Bazar">
+<link rel="canonical" href="https://sandeepbazar.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Sandeep Bazar: Engineering Leader, Cloud Infrastructure">
+<meta property="og:description" content="I build the teams that build infrastructure people trust. Fourteen years at IBM: virtualization, hosted control planes, multicluster and observability.">
+<meta property="og:image" content="https://sandeepbazar.github.io/assets/profile.jpg">
+<meta property="og:url" content="https://sandeepbazar.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b1220'/><text x='50' y='68' font-family='monospace' font-size='52' font-weight='700' fill='%23ff8a3d' text-anchor='middle'>SB</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b1220; --surface:#111a2b; --raise:#16223a; --line:#22314a;
+  --text:#e8eef7; --muted:#93a6c0; --dim:#6b7f9b;
+  --signal:#ff8a3d; --cool:#5eead4; --shadow:rgba(0,0,0,.4);
+  --display:"IBM Plex Sans Condensed","IBM Plex Sans",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --maxw:1080px; --pad:clamp(20px,5vw,40px);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f7f9; --surface:#ffffff; --raise:#eef1f6; --line:#d8dfea;
+    --text:#111c2e; --muted:#4d5f78; --dim:#75879f;
+    --signal:#c2521a; --cool:#0d7a6e; --shadow:rgba(17,28,46,.10);
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:var(--body); font-size:17px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--signal);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:3px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:99;background:var(--signal);color:#0b1220;padding:10px 16px;border-radius:6px}
+
+/* ---------- eyebrow / section furniture ---------- */
+.eyebrow{
+  font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--dim);margin:0 0 .6rem;
+}
+.sec{padding-block:clamp(48px,7vw,84px);border-top:1px solid var(--line)}
+.sec-title{
+  font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,3.4vw,2.3rem);
+  line-height:1.1;letter-spacing:-.01em;margin:0 0 .5rem;
+}
+.sec-lead{color:var(--muted);margin:0 0 2rem;max-width:62ch}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);
+  background:color-mix(in srgb,var(--bg) 82%,transparent);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{display:flex;align-items:center;gap:1.4rem;height:58px}
+.mark{font-family:var(--mono);font-weight:600;letter-spacing:.1em;color:var(--text);font-size:.86rem}
+.mark b{color:var(--signal)}
+.nav nav{margin-left:auto;display:flex;gap:1.3rem;flex-wrap:wrap}
+.nav nav a{font-size:.86rem;color:var(--muted);font-weight:500}
+.nav nav a:hover{color:var(--text);text-decoration:none}
+@media(max-width:720px){.nav nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(44px,7vw,78px) clamp(30px,4vw,44px)}
+.hero-grid{display:grid;grid-template-columns:1fr auto;gap:clamp(24px,4vw,52px);align-items:start}
+@media(max-width:760px){.hero-grid{grid-template-columns:1fr}}
+h1{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(2.15rem,6.2vw,3.9rem);line-height:1.03;letter-spacing:-.02em;
+  margin:0 0 1.1rem;text-wrap:balance;
+}
+h1 em{font-style:normal;color:var(--signal)}
+.lead{font-size:clamp(1rem,1.9vw,1.14rem);color:var(--muted);max-width:56ch;margin:0}
+.portrait{
+  width:clamp(140px,19vw,196px);aspect-ratio:1;border-radius:14px;object-fit:cover;
+  border:1px solid var(--line);box-shadow:0 14px 40px var(--shadow);
+}
+@media(max-width:760px){.portrait{width:128px}}
+
+/* ---------- stats ---------- */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;margin-top:clamp(30px,4.5vw,46px);
+}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--surface);padding:1.05rem 1.15rem}
+.stat dt{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--dim);margin:0 0 .3rem;
+}
+.stat dd{
+  font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3.2vw,2rem);
+  line-height:1;margin:0;letter-spacing:-.01em;
+}
+.stat dd span{font-size:.55em;color:var(--muted);font-weight:600;margin-left:.15em}
+
+/* ---------- career chart ---------- */
+.chart-shell{
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:clamp(14px,2.4vw,22px);overflow-x:auto;
+}
+#plot{width:100%;min-width:640px;height:auto;display:block}
+.grid-line{stroke:var(--line);stroke-width:1}
+.axis-tick{fill:var(--dim);font-family:var(--mono);font-size:12px}
+.lvl-label{fill:var(--dim);font-family:var(--mono);font-size:11.5px;letter-spacing:.06em}
+.track{fill:none;stroke:var(--signal);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.node{fill:var(--bg);stroke:var(--signal);stroke-width:2}
+.mk{cursor:pointer}
+.mk circle{fill:var(--cool);stroke:var(--bg);stroke-width:2.5;transition:r .16s ease}
+.mk:hover circle,.mk:focus-visible circle{r:8}
+.mk-stem{stroke:var(--line);stroke-width:1;stroke-dasharray:2 3}
+.mk-label{fill:var(--muted);font-family:var(--mono);font-size:11px}
+.legend{
+  display:flex;gap:1.3rem;flex-wrap:wrap;margin-top:.9rem;
+  font-family:var(--mono);font-size:.72rem;color:var(--dim);
+}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:.4rem;vertical-align:baseline}
+.milestones{list-style:none;margin:1.4rem 0 0;padding:0;display:grid;gap:.45rem}
+.milestones li{display:grid;grid-template-columns:4.2rem 1fr;gap:.9rem;font-size:.92rem;align-items:baseline}
+.milestones time{font-family:var(--mono);font-size:.78rem;color:var(--signal);font-weight:500}
+@media(min-width:721px){.milestones{display:none}}
+@media(max-width:720px){.chart-shell{display:none}}
+
+/* ---------- cards ---------- */
+.cards{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(255px,1fr))}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:1.25rem 1.3rem;transition:border-color .18s ease,transform .18s ease;
+}
+.card h3{font-family:var(--display);font-weight:700;font-size:1.08rem;margin:0 0 .5rem;letter-spacing:-.005em}
+.card p{margin:0;color:var(--muted);font-size:.94rem}
+a.card{display:block;color:inherit}
+a.card:hover{border-color:var(--signal);transform:translateY(-2px);text-decoration:none}
+a.card .go{
+  font-family:var(--mono);font-size:.72rem;color:var(--signal);
+  margin-top:.85rem;display:block;letter-spacing:.05em;
+}
+.tags{margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap}
+.tag{
+  font-family:var(--mono);font-size:.66rem;color:var(--dim);
+  border:1px solid var(--line);border-radius:20px;padding:.16rem .55rem;
+}
+
+/* ---------- experience ---------- */
+.role{
+  display:grid;grid-template-columns:9.5rem 1fr;gap:clamp(1rem,3vw,2.2rem);
+  padding-block:1.35rem;border-top:1px solid var(--line);
+}
+.role:first-of-type{border-top:0;padding-top:0}
+@media(max-width:700px){.role{grid-template-columns:1fr;gap:.4rem}}
+.role-when{font-family:var(--mono);font-size:.78rem;color:var(--dim);letter-spacing:.03em;padding-top:.28rem}
+.role h3{font-family:var(--display);font-weight:700;font-size:1.14rem;margin:0 0 .1rem}
+.role .org{font-size:.88rem;color:var(--cool);margin:0 0 .55rem}
+.role p.what{margin:0;color:var(--muted);font-size:.95rem}
+
+/* ---------- writing list ---------- */
+.list{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
+.list li{display:grid;grid-template-columns:5.6rem 1fr;gap:1rem;align-items:baseline;font-size:.95rem}
+@media(max-width:620px){.list li{grid-template-columns:1fr;gap:.15rem}}
+.list .kind{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.list .meta{color:var(--dim);font-family:var(--mono);font-size:.76rem}
+
+/* ---------- endurance ---------- */
+.endur{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,40px);align-items:center}
+@media(max-width:700px){.endur{grid-template-columns:1fr}}
+.endur img{width:clamp(150px,22vw,220px);aspect-ratio:1;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+.endur p{margin:0 0 .9rem;color:var(--muted);max-width:58ch}
+
+/* ---------- contact ---------- */
+.cta{
+  display:inline-flex;align-items:center;gap:.55rem;background:var(--signal);color:#0b1220;
+  font-weight:600;font-size:.95rem;padding:.72rem 1.35rem;border-radius:9px;
+}
+.cta:hover{text-decoration:none;filter:brightness(1.08)}
+.cta.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.cta.ghost:hover{border-color:var(--signal);filter:none}
+.actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.6rem}
+.reach{display:grid;gap:.4rem;margin-top:1.8rem;font-family:var(--mono);font-size:.9rem}
+.reach span{color:var(--dim);display:inline-block;width:5.2rem}
+
+footer{
+  border-top:1px solid var(--line);padding-block:1.8rem;
+  font-family:var(--mono);font-size:.74rem;color:var(--dim);
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+}
+
+/* ---------- entrance motion ---------- */
+.reveal{opacity:0;transform:translateY(14px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .55s ease,transform .55s ease}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal.in{opacity:1;transform:none;transition:none}
+  .card:hover{transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <span class="mark">SANDEEP<b>.</b>BAZAR</span>
+    <nav>
+      <a href="#track">Track record</a>
+      <a href="#lead">How I lead</a>
+      <a href="#work">Experience</a>
+      <a href="#build">Building</a>
+      <a href="#writing">Patents &amp; writing</a>
+      <a href="/blogs/">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="wrap hero">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">Pune, India · IBM India Systems and Development Lab</p>
+      <h1>I build the teams that build <em>infrastructure people trust.</em></h1>
+      <p class="lead">Senior Development Manager at IBM Storage Fusion. Virtualization, hosted control planes, multicluster management and observability, and now agentic AI for the product. Fourteen years full-time in one lab, plus the internship that started it, most of them spent making distributed systems survive contact with real customers.</p>
+    </div>
+    <img class="portrait" src="assets/profile.jpg" alt="Sandeep Bazar" width="196" height="196">
+  </div>
+
+  <dl class="stats">
+    <div class="stat"><dt>Full-time at IBM</dt><dd>14<span>years</span></dd></div>
+    <div class="stat"><dt>Granted</dt><dd>6<span>US patents</span></dd></div>
+    <div class="stat"><dt>Org co-founded</dt><dd>100<span>+ engineers</span></dd></div>
+    <div class="stat"><dt>Longest run</dt><dd>300<span>km, one stage</span></dd></div>
+  </dl>
+</section>
+
+<section class="wrap sec" id="track">
+  <p class="eyebrow">Track record</p>
+  <h2 class="sec-title">Fourteen years, plotted</h2>
+  <p class="sec-lead">Scope of ownership over time, with the things worth marking. The line starts at the 2011 internship; full-time engineering begins in October 2012. Hover a point for detail.</p>
+  <div class="chart-shell">
+    <svg id="plot" viewBox="0 0 1000 300" role="img" aria-label="Chart of Sandeep Bazar's career from the 2011 internship through 14 years full-time to 2026, rising from intern to senior development manager, with milestones for patents, publications and teams founded."></svg>
+    <div class="legend">
+      <span><i style="background:var(--signal)"></i>Scope of ownership</span>
+      <span><i style="background:var(--cool)"></i>Milestone</span>
+    </div>
+  </div>
+  <ol class="milestones" id="milestones"></ol>
+</section>
+
+<section class="wrap sec" id="lead">
+  <p class="eyebrow">How I lead</p>
+  <h2 class="sec-title">Three things I do</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Build the room, not the hero</h3>
+      <p>I staff for bench depth, so capability never rests on one person. A 2 a.m. rescue is a system to fix, not a story to retell.</p>
+    </div>
+    <div class="card">
+      <h3>Build the tools, not only the plan</h3>
+      <p>I led the architecture of our observability framework and wrote a lot of it. Lately that means an AI assistant built into Fusion HCI on MCP and LLMs, so an operator can ask the product a question instead of digging through logs.</p>
+    </div>
+    <div class="card">
+      <h3>Stay close to the code</h3>
+      <p>I still read designs and reviews. I am not trying to be the best engineer in the room. I want to know when an estimate does not add up.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec" id="work">
+  <p class="eyebrow">Experience</p>
+  <h2 class="sec-title">One lab, four chapters</h2>
+  <div>
+    <article class="role">
+      <div class="role-when">Sep 2022 to now</div>
+      <div>
+        <h3>Senior Development Manager, IBM Storage Fusion</h3>
+        <p class="org">Progressed from Senior Technical Lead</p>
+        <p class="what">Lead 20+ engineers across three squads covering virtualization, hosted control planes, multicluster management and observability, and own agentic AI for the product: the in-product AI assistant for Fusion HCI, built on MCP and LLMs, with the agent skills behind it. Built the Virtualization and Multicluster squads from the first hire through production customer adoption, and act as lab advocate for large enterprise accounts.</p>
+      </div>
+    </article>
+    <article class="role">
+      <div class="role-when">Feb 2016 to Aug 2022</div>
+      <div>
+        <h3>Technical Lead: IBM Storage Scale, Data Protection &amp; Escalation Engineering</h3>
+        <p class="org">IBM Storage Scale, Modern Data Protection</p>
+        <p class="what">Led IBM Storage Scale Object on OpenStack Swift across RHEL and Ubuntu. Ran Asia-Pacific escalations for IBM Storage Scale under a 24/7 follow-the-sun model, in an organisation now 50+ engineers. Founding member and lead of IBM's Modern Data Protection organisation in Pune, now 100+ engineers.</p>
+      </div>
+    </article>
+    <article class="role">
+      <div class="role-when">Oct 2012 to Jan 2016</div>
+      <div>
+        <h3>Software Engineer: Storage, Security &amp; Cloud Platforms</h3>
+        <p class="org">SONAS, V7000 Unified, IBM Storage Scale, DS8000</p>
+        <p class="what">Owned quality engineering and automation, and led authentication and security certification across Active Directory, LDAP, NIS and OpenStack Keystone. Qualified NFS, CIFS/SMB, Object and SNIA CDMI protocol stacks.</p>
+      </div>
+    </article>
+    <article class="role">
+      <div class="role-when">Sep 2011 to Sep 2012</div>
+      <div>
+        <h3>Software Engineering Intern</h3>
+        <p class="org">Cloud storage &amp; platform development</p>
+        <p class="what">Built a Dropbox-style cloud storage and synchronisation service on SNIA CDMI. It won the IBM Innovation Showcase and became an IEEE publication.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="wrap sec" id="build">
+  <p class="eyebrow">Building in public</p>
+  <h2 class="sec-title">Things I'm making outside work</h2>
+  <p class="sec-lead">Open source and long-form writing, mostly at the seam between AI and infrastructure: where agents meet production systems, and how to teach the whole stack.</p>
+  <div class="cards">
+    <a class="card" href="https://sandeepbazar.github.io/ocm-mcp-server/">
+      <h3>ocm-mcp-server</h3>
+      <p>AgentOps for Kubernetes fleets, done safely. Lets AI agents operate a multi-cluster fleet through an Open Cluster Management hub. The agent never holds a kubeconfig, and every write is policy-checked, approved and traced.</p>
+      <div class="tags"><span class="tag">Go</span><span class="tag">MCP</span><span class="tag">Kubernetes</span></div>
+      <span class="go">Read the docs →</span>
+    </a>
+    <a class="card" href="https://sandeepbazar.github.io/ai-roadmap-365/">
+      <h3>365 Days of AI Mastery</h3>
+      <p>From how a computer works to designing, evaluating, securing and deploying production AI systems. Nine standalone courses, one lesson and one lab a day for a year. 141 of 365 published so far, every output captured from a real execution.</p>
+      <div class="tags"><span class="tag">Curriculum</span><span class="tag">MDX</span><span class="tag">AI</span></div>
+      <span class="go">Start the course →</span>
+    </a>
+    <a class="card" href="https://sandeepbazar.github.io/blogs/">
+      <h3>Writing</h3>
+      <p>Long-form notes on platform engineering, storage and leading engineers. Markdown in, static site out. No CMS, no database, no tracker.</p>
+      <div class="tags"><span class="tag">Essays</span></div>
+      <span class="go">Read the posts →</span>
+    </a>
+    <a class="card" href="https://github.com/sandeepbazar/ibm-fusion-mcp-server">
+      <h3>ibm-fusion-mcp-server</h3>
+      <p>Model Context Protocol server for IBM Fusion, bringing fleet and data-resilience operations into reach of AI agents.</p>
+      <div class="tags"><span class="tag">MCP</span><span class="tag">Fusion</span></div>
+      <span class="go">View on GitHub →</span>
+    </a>
+  </div>
+</section>
+
+<section class="wrap sec" id="writing">
+  <p class="eyebrow">Patents &amp; writing</p>
+  <h2 class="sec-title">Six granted patents, and the writing</h2>
+  <ul class="list">
+    <li><span class="kind">Patent</span><span>Dynamic control of a smart home using a wearable device <span class="meta">US 10072866 · US 10250403 · US 9473321</span></span></li>
+    <li><span class="kind">Patent</span><span>Controlling implantable medical devices using wearable technology <span class="meta">US 10226632</span></span></li>
+    <li><span class="kind">Patent</span><span>Identifying and managing redundant digital content transfers <span class="meta">US 10419557</span></span></li>
+    <li><span class="kind">Patent</span><span>Overriding feature to unblock contacts in energy-saving mode <span class="meta">US 9965024</span></span></li>
+    <li><span class="kind">Redbook</span><span><a href="https://www.redbooks.ibm.com/redpapers/pdfs/redp5426.pdf">IBM Spectrum Scale Security</a> <span class="meta">REDP-5426 · 2018</span></span></li>
+    <li><span class="kind">Redbook</span><span><a href="https://www.redbooks.ibm.com/redpapers/pdfs/redp5113.pdf">A deployment guide for IBM Spectrum Scale unified file and object storage</a> <span class="meta">REDP-5113 · 2017</span></span></li>
+    <li><span class="kind">Paper</span><span><a href="https://ieeexplore.ieee.org/document/6354607">Enterprise-compatible cloud object storage and synchronization service</a> <span class="meta">IEEE · 2012</span></span></li>
+    <li><span class="kind">Talk</span><span><a href="https://www.youtube.com/watch?v=PZiTQDsg9fg">Mobilize platform-agnostic adaptability for object store</a> <span class="meta">OpenStack Summit, Tokyo · 2015</span></span></li>
+    <li><span class="kind">Article</span><span><a href="https://community.ibm.com/community/user/blogs/sandeep-bazar">Bringing agentic AI to the IBM Fusion fleet</a> <span class="meta">IBM Community · 2026</span></span></li>
+    <li><span class="kind">Series</span><span><a href="https://medium.com/@sandeepbazar">IBM Fusion, Kubernetes MCP and agentic operations</a> <span class="meta">Medium · 2026</span></span></li>
+    <li><span class="kind">Sessions</span><span>IBM Storage Strategy Days and IBM user groups <span class="meta">customer-facing technical talks · 2026</span></span></li>
+  </ul>
+</section>
+
+<section class="wrap sec" id="endurance">
+  <p class="eyebrow">Off the clock</p>
+  <h2 class="sec-title">The same discipline, different distance</h2>
+  <div class="endur">
+    <img src="assets/running.jpg" alt="Sandeep Bazar running a hill race in the rain" width="220" height="220" loading="lazy">
+    <div>
+      <p>I run ultras. The longest so far is a 300 km single-stage event. Long-distance running and long-running engineering organisations reward the same thing: pace you can hold, not a sprint you can post about. I've also helped a fair number of colleagues take up their first distance.</p>
+      <p>Alongside work I'm an Executive PhD scholar at IIM Udaipur, researching artificial intelligence, technology management and organisational decision-making.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec" id="contact">
+  <p class="eyebrow">Contact</p>
+  <h2 class="sec-title">Let's talk</h2>
+  <p class="sec-lead">Open to conversations about engineering leadership roles in cloud infrastructure, platform and data resilience.</p>
+  <div class="actions">
+    <a class="cta" href="mailto:sandeepbazar@gmail.com">Email me</a>
+    <a class="cta ghost" href="assets/SandeepBazar-Resume.pdf">Download resume (PDF)</a>
+    <a class="cta ghost" href="https://www.linkedin.com/in/sandeepbazar/">LinkedIn</a>
+  </div>
+  <div class="reach">
+    <div><span>Email</span><a href="mailto:sandeepbazar@gmail.com">sandeepbazar@gmail.com</a></div>
+    <div><span>Phone</span><a href="tel:+919545253067">+91 95452 53067</a></div>
+    <div><span>GitHub</span><a href="https://github.com/sandeepbazar">github.com/sandeepbazar</a></div>
+    <div><span>Based in</span>Pune, Maharashtra, India</div>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Sandeep Bazar</span>
+  <span>Built by hand · IBM Plex · no trackers</span>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // Career data. The chart and the mobile list are both drawn from this,
+  // so the picture cannot drift away from the facts.
+  var STEPS = [
+    {year:2011.7, level:1, label:"Intern"},
+    {year:2012.8, level:2, label:"Software Engineer"},
+    {year:2016.1, level:3, label:"Technical Lead"},
+    {year:2022.4, level:4, label:"Senior Technical Lead"},
+    {year:2022.8, level:5, label:"Senior Development Manager"},
+    {year:2026.7, level:5, label:null}
+  ];
+  var LEVELS = ["Intern","Engineer","Tech Lead","Senior Lead","Manager"];
+  var MARKS = [
+    {year:2012.4, text:"IBM Innovation Showcase win + IEEE paper", short:"Innovation Showcase win, IEEE paper", when:"2012"},
+    {year:2015.8, text:"OpenStack Summit talk, Tokyo", short:"OpenStack Summit talk, Tokyo", when:"2015"},
+    {year:2017.2, text:"Redbook: unified file &amp; object storage", short:"Redbook on unified file and object storage", when:"2017"},
+    {year:2018.6, text:"Redbook: Spectrum Scale Security", short:"Redbook on IBM Spectrum Scale security", when:"2018"},
+    {year:2019.4, text:"Six US patents granted, 2016 to 2019", short:"Six US patents granted", when:"2016-19"},
+    {year:2022.4, text:"Co-founded Modern Data Protection org", short:"Founding member and lead of the Modern Data Protection org, now 100+ engineers", when:"2022"},
+    {year:2023.6, text:"Built Virtualization &amp; Multicluster squads", short:"Built the Virtualization and Multicluster squads", when:"2023"},
+    {year:2025.6, text:"Executive PhD begins, IIM Udaipur", short:"Executive PhD begins at IIM Udaipur", when:"2025"}
+  ];
+
+  var W=1000, H=300, L=104, R=26, T=34, B=46;
+  var Y0=2011.3, Y1=2026.9;
+  function X(y){ return L + (y-Y0)/(Y1-Y0)*(W-L-R); }
+  function Y(l){ var h=H-T-B; return T + h - (l-1)/(LEVELS.length-1)*h; }
+  function levelAt(y){
+    var lv = STEPS[0].level;
+    for (var i=0;i<STEPS.length;i++){ if (STEPS[i].year<=y) lv=STEPS[i].level; }
+    return lv;
+  }
+  function el(name, attrs, text){
+    var n=document.createElementNS("http://www.w3.org/2000/svg",name);
+    for (var k in attrs){ if(attrs[k]!==null) n.setAttribute(k,attrs[k]); }
+    if (text!==undefined) n.textContent=text;
+    return n;
+  }
+
+  var svg=document.getElementById("plot");
+  if (svg){
+    // horizontal guides + level names
+    for (var i=1;i<=LEVELS.length;i++){
+      svg.appendChild(el("line",{x1:L,y1:Y(i),x2:W-R,y2:Y(i),"class":"grid-line"}));
+      svg.appendChild(el("text",{x:L-12,y:Y(i)+4,"text-anchor":"end","class":"lvl-label"},LEVELS[i-1]));
+    }
+    // year ticks
+    for (var yr=2012; yr<=2026; yr+=2){
+      svg.appendChild(el("text",{x:X(yr),y:H-16,"text-anchor":"middle","class":"axis-tick"},String(yr)));
+    }
+    // stepped track
+    var d="M "+X(STEPS[0].year)+" "+Y(STEPS[0].level);
+    for (var s=1;s<STEPS.length;s++){
+      d += " L "+X(STEPS[s].year)+" "+Y(STEPS[s-1].level);
+      d += " L "+X(STEPS[s].year)+" "+Y(STEPS[s].level);
+    }
+    var path=el("path",{d:d,"class":"track"});
+    svg.appendChild(path);
+
+    // step nodes
+    STEPS.forEach(function(st){
+      if (st.label) svg.appendChild(el("circle",{cx:X(st.year),cy:Y(st.level),r:4.5,"class":"node"}));
+    });
+
+    // milestone markers
+    var tip=el("g",{opacity:"0"});
+    var tipBg=el("rect",{x:0,y:0,rx:5,height:24,fill:"var(--raise)",stroke:"var(--line)"});
+    var tipTx=el("text",{x:0,y:0,"class":"mk-label",fill:"var(--text)"});
+    tip.appendChild(tipBg); tip.appendChild(tipTx);
+
+    MARKS.forEach(function(m,idx){
+      var cx=X(m.year), cy=Y(levelAt(m.year));
+      var g=el("g",{"class":"mk",tabindex:"0",role:"listitem"});
+      g.appendChild(el("line",{x1:cx,y1:cy,x2:cx,y2:T-10,"class":"mk-stem"}));
+      g.appendChild(el("circle",{cx:cx,cy:cy,r:5.5}));
+      g.appendChild(el("title",null,m.when+"  "+m.short));
+      function show(){
+        tipTx.textContent = m.when+"  "+m.short;
+        var w = tipTx.getComputedTextLength()+18;
+        var tx = Math.min(Math.max(cx-w/2, L), W-R-w);
+        tipBg.setAttribute("x",tx); tipBg.setAttribute("width",w);
+        tipBg.setAttribute("y",T-32);
+        tipTx.setAttribute("x",tx+9); tipTx.setAttribute("y",T-15);
+        tip.setAttribute("opacity","1");
+      }
+      function hide(){ tip.setAttribute("opacity","0"); }
+      g.addEventListener("mouseenter",show); g.addEventListener("mouseleave",hide);
+      g.addEventListener("focus",show); g.addEventListener("blur",hide);
+      svg.appendChild(g);
+    });
+    svg.appendChild(tip);
+
+    // one orchestrated page-load moment: the track draws, markers follow
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduce){
+      var len=path.getTotalLength();
+      path.style.strokeDasharray=len; path.style.strokeDashoffset=len;
+      path.style.transition="stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1)";
+      var marks=svg.querySelectorAll(".mk, .node");
+      Array.prototype.forEach.call(marks,function(n){ n.style.opacity="0"; });
+      requestAnimationFrame(function(){
+        path.style.strokeDashoffset="0";
+        Array.prototype.forEach.call(marks,function(n,i){
+          n.style.transition="opacity .4s ease";
+          setTimeout(function(){ n.style.opacity="1"; }, 420 + i*95);
+        });
+      });
+    }
+  }
+
+  // mobile / assistive list, same data
+  var ol=document.getElementById("milestones");
+  if (ol){
+    MARKS.forEach(function(m){
+      var li=document.createElement("li");
+      li.innerHTML='<time>'+m.when+'</time><span>'+m.short+'</span>';
+      ol.appendChild(li);
+    });
+  }
+
+  // gentle scroll reveal
+  var targets=document.querySelectorAll(".sec > .eyebrow, .sec-title, .sec-lead, .card, .role, .chart-shell, .endur, .list, .actions");
+  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    Array.prototype.forEach.call(targets,function(t){ t.classList.add("reveal"); });
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    },{rootMargin:"0px 0px -8% 0px",threshold:.06});
+    Array.prototype.forEach.call(targets,function(t){ io.observe(t); });
+    // Failsafe: never let content stay hidden because the observer didn't fire.
+    setTimeout(function(){
+      Array.prototype.forEach.call(targets,function(t){ t.classList.add("in"); });
+    }, 1600);
+  }
+})();
+</script>
+</body>
+</html>
