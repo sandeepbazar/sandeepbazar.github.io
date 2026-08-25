@@ -14,25 +14,49 @@
 <meta property="og:url" content="https://sandeepbazar.github.io/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b1220'/><text x='50' y='68' font-family='monospace' font-size='52' font-weight='700' fill='%23ff8a3d' text-anchor='middle'>SB</text></svg>">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+/* Palette shared with the blogs site, so the properties read as one.
+   Light is the default here: this is the homepage, and it should read as a
+   professional document rather than a console. Dark is one click away and the
+   choice is remembered, so a visitor who prefers dark keeps it.
+
+   The light accents are a few shades darker than the blogs values on purpose.
+   Cyan and green are bright hues that lose contrast on a light ground: the
+   blogs tokens measure 3.88:1 and 3.26:1 against #f7f9fc, under the 4.5:1
+   that normal text needs. */
 :root{
-  --bg:#0b1220; --surface:#111a2b; --raise:#16223a; --line:#22314a;
-  --text:#e8eef7; --muted:#93a6c0; --dim:#6b7f9b;
-  --signal:#ff8a3d; --cool:#5eead4; --shadow:rgba(0,0,0,.4);
+  color-scheme:light;
+  --bg:#f7f9fc; --surface:#ffffff; --raise:#eef2f9; --line:#dde5f2;
+  --text:#0d1428; --muted:#46577d; --dim:#5c6b8c;
+  --signal:#0369a1; --signal-2:#4338ca; --cool:#047857; --amber:#b4460f;
+  --on-accent:#ffffff;
+  --shadow:rgba(15,23,42,.16);
+  --radius:16px; --radius-sm:10px;
   --display:"IBM Plex Sans Condensed","IBM Plex Sans",system-ui,sans-serif;
   --body:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   --maxw:1080px; --pad:clamp(20px,5vw,40px);
 }
-@media (prefers-color-scheme: light){
-  :root{
-    --bg:#f6f7f9; --surface:#ffffff; --raise:#eef1f6; --line:#d8dfea;
-    --text:#111c2e; --muted:#4d5f78; --dim:#75879f;
-    --signal:#c2521a; --cool:#0d7a6e; --shadow:rgba(17,28,46,.10);
-  }
+/* Dark, applied only when the visitor asks for it via the toggle. */
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0b1020; --surface:#101736; --raise:#141a33; --line:#24305c;
+  --text:#eef2ff; --muted:#aab6d6; --dim:#7f8db5;
+  --signal:#38bdf8; --signal-2:#6f6cf6; --cool:#34d399; --amber:#fb923c;
+  --on-accent:#0b1020;
+  --shadow:rgba(2,6,23,.62);
+}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#f7f9fc; --surface:#ffffff; --raise:#eef2f9; --line:#dde5f2;
+  --text:#0d1428; --muted:#46577d; --dim:#5c6b8c;
+  --signal:#0369a1; --signal-2:#4338ca; --cool:#047857; --amber:#b4460f;
+  --on-accent:#ffffff;
+  --shadow:rgba(15,23,42,.16);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -48,7 +72,7 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
 :focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:3px}
 .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
 .skip{position:absolute;left:-9999px}
-.skip:focus{left:12px;top:12px;z-index:99;background:var(--signal);color:#0b1220;padding:10px 16px;border-radius:6px}
+.skip:focus{left:12px;top:12px;z-index:99;background:var(--signal);color:var(--on-accent);padding:10px 16px;border-radius:8px}
 
 /* ---------- eyebrow / section furniture ---------- */
 .eyebrow{
@@ -88,7 +112,7 @@ h1{
 h1 em{font-style:normal;color:var(--signal)}
 .lead{font-size:clamp(1rem,1.9vw,1.14rem);color:var(--muted);max-width:56ch;margin:0}
 .portrait{
-  width:clamp(140px,19vw,196px);aspect-ratio:1;border-radius:14px;object-fit:cover;
+  width:clamp(140px,19vw,196px);aspect-ratio:1;border-radius:var(--radius);object-fit:cover;
   border:1px solid var(--line);box-shadow:0 14px 40px var(--shadow);
 }
 @media(max-width:760px){.portrait{width:128px}}
@@ -96,7 +120,7 @@ h1 em{font-style:normal;color:var(--signal)}
 /* ---------- stats ---------- */
 .stats{
   display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-  background:var(--line);border:1px solid var(--line);border-radius:12px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);
   overflow:hidden;margin-top:clamp(30px,4.5vw,46px);
 }
 @media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
@@ -113,7 +137,7 @@ h1 em{font-style:normal;color:var(--signal)}
 
 /* ---------- career chart ---------- */
 .chart-shell{
-  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
   padding:clamp(14px,2.4vw,22px);overflow-x:auto;
 }
 #plot{width:100%;min-width:640px;height:auto;display:block}
@@ -121,7 +145,7 @@ h1 em{font-style:normal;color:var(--signal)}
 .axis-tick{fill:var(--dim);font-family:var(--mono);font-size:12px}
 .lvl-label{fill:var(--dim);font-family:var(--mono);font-size:11.5px;letter-spacing:.06em}
 .track{fill:none;stroke:var(--signal);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
-.node{fill:var(--bg);stroke:var(--signal);stroke-width:2}
+.node{fill:var(--bg);stroke:var(--signal);stroke-width:2.2}
 .mk{cursor:pointer}
 .mk circle{fill:var(--cool);stroke:var(--bg);stroke-width:2.5;transition:r .16s ease}
 .mk:hover circle,.mk:focus-visible circle{r:8}
@@ -141,8 +165,8 @@ h1 em{font-style:normal;color:var(--signal)}
 /* ---------- cards ---------- */
 .cards{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(255px,1fr))}
 .card{
-  background:var(--surface);border:1px solid var(--line);border-radius:12px;
-  padding:1.25rem 1.3rem;transition:border-color .18s ease,transform .18s ease;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.35rem 1.4rem;transition:border-color .18s ease,transform .18s ease;
 }
 .card h3{font-family:var(--display);font-weight:700;font-size:1.08rem;margin:0 0 .5rem;letter-spacing:-.005em}
 .card p{margin:0;color:var(--muted);font-size:.94rem}
@@ -180,13 +204,13 @@ a.card .go{
 /* ---------- endurance ---------- */
 .endur{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,40px);align-items:center}
 @media(max-width:700px){.endur{grid-template-columns:1fr}}
-.endur img{width:clamp(150px,22vw,220px);aspect-ratio:1;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+.endur img{width:clamp(150px,22vw,220px);aspect-ratio:1;object-fit:cover;border-radius:var(--radius);border:1px solid var(--line)}
 .endur p{margin:0 0 .9rem;color:var(--muted);max-width:58ch}
 
 /* ---------- contact ---------- */
 .cta{
-  display:inline-flex;align-items:center;gap:.55rem;background:var(--signal);color:#0b1220;
-  font-weight:600;font-size:.95rem;padding:.72rem 1.35rem;border-radius:9px;
+  display:inline-flex;align-items:center;gap:.55rem;background:linear-gradient(135deg,var(--signal),var(--signal-2));color:var(--on-accent);
+  font-weight:600;font-size:.95rem;padding:.78rem 1.45rem;border-radius:var(--radius-sm);
 }
 .cta:hover{text-decoration:none;filter:brightness(1.08)}
 .cta.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
@@ -202,6 +226,24 @@ footer{
 }
 
 
+
+/* ---------- theme toggle ---------- */
+.tbtn{
+  margin-left:.4rem;display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:50%;background:var(--surface);
+  border:1px solid var(--line);color:var(--muted);cursor:pointer;flex:none;
+  transition:color .2s ease,border-color .2s ease,transform .2s ease;
+}
+.tbtn:hover{color:var(--text);border-color:var(--signal);transform:translateY(-1px)}
+.tbtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round}
+.tbtn .sun{display:none}
+:root:not([data-theme="dark"]) .tbtn .sun{display:block}
+:root:not([data-theme="dark"]) .tbtn .moon{display:none}
+:root[data-theme="dark"] .tbtn .sun{display:none}
+:root[data-theme="dark"] .tbtn .moon{display:block}
+@media(max-width:720px){.nav nav{display:none}.tbtn{margin-left:auto}}
+
 /* ================= pace line: the signature ================= */
 /* A single thread down the page. Fills as you descend, marks each
    section as you pass it. Same idea as the career line: pace held. */
@@ -212,7 +254,7 @@ footer{
 .pace-track{position:absolute;inset:0;background:var(--line);opacity:.55;border-radius:2px}
 .pace-fill{
   position:absolute;left:0;top:0;width:100%;height:0;border-radius:2px;
-  background:linear-gradient(180deg,var(--signal),var(--cool));
+  background:linear-gradient(180deg,var(--signal),var(--signal-2));
 }
 .pace-mark{
   position:absolute;left:50%;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;
@@ -247,7 +289,7 @@ h1 .w{display:inline-block;will-change:transform,opacity}
 .stat{position:relative;overflow:hidden;transition:background .25s ease}
 .stat::after{
   content:"";position:absolute;left:0;top:0;height:2px;width:100%;
-  background:linear-gradient(90deg,var(--signal),var(--cool));
+  background:linear-gradient(90deg,var(--signal),var(--signal-2));
   transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.4,0,.2,1);
 }
 .stat:hover::after{transform:scaleX(1)}
@@ -284,7 +326,7 @@ h1 .w{display:inline-block;will-change:transform,opacity}
 .card{position:relative;overflow:hidden}
 .card::after{
   content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;
-  background:linear-gradient(90deg,var(--signal),var(--cool));
+  background:linear-gradient(90deg,var(--signal),var(--signal-2));
   transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.4,0,.2,1);
 }
 a.card:hover::after{transform:scaleX(1)}
@@ -343,6 +385,10 @@ a.card:hover .go{transform:translateX(4px)}
       <a href="/blogs/">Blog</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button class="tbtn" id="themeBtn" type="button" aria-label="Switch to light theme">
+      <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
   </div>
 </header>
 
@@ -586,7 +632,7 @@ a.card:hover .go{transform:translateX(4px)}
     var defs=el("defs",null);
     var g1=el("linearGradient",{id:"paceGrad",x1:"0",y1:"0",x2:"1",y2:"0"});
     g1.appendChild(el("stop",{offset:"0%","stop-color":"var(--signal)"}));
-    g1.appendChild(el("stop",{offset:"100%","stop-color":"var(--cool)"}));
+    g1.appendChild(el("stop",{offset:"100%","stop-color":"var(--signal-2)"}));
     var g2=el("linearGradient",{id:"underGrad",x1:"0",y1:"0",x2:"0",y2:"1"});
     g2.appendChild(el("stop",{offset:"0%","stop-color":"var(--signal)","stop-opacity":".26"}));
     g2.appendChild(el("stop",{offset:"100%","stop-color":"var(--signal)","stop-opacity":"0"}));
@@ -815,6 +861,26 @@ a.card:hover .go{transform:translateX(4px)}
         w.style.opacity = "1"; w.style.transform = "none";
       });
     }, 2500);
+  }
+
+  /* ---- theme toggle: overrides the OS preference, remembers the choice ---- */
+  var btn = document.getElementById("themeBtn");
+  if (btn){
+    var root = document.documentElement;
+    /* Light is the default, so anything other than an explicit dark is light. */
+    var effective = function(){
+      return root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    };
+    var label = function(){
+      btn.setAttribute("aria-label", effective() === "light" ? "Switch to dark theme" : "Switch to light theme");
+    };
+    label();
+    btn.addEventListener("click", function(){
+      var next = effective() === "light" ? "dark" : "light";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch(e){}
+      label();
+    });
   }
 })();
 </script>
