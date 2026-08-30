@@ -1,6 +1,6 @@
 # sandeepbazar.github.io
 
-Homepage for **Sandeep Bazar**: <https://sandeepbazar.github.io/>
+Homepage for **[Sandeep Bazar](https://www.linkedin.com/in/sandeepbazar/)**: <https://sandeepbazar.github.io/>
 
 This is the GitHub **user site**, which is why the repository has to be named
 `sandeepbazar.github.io` exactly. An account gets one of these, and it owns the root of the
