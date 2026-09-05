@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" role="img" aria-label="Sandeep Bazar: platform infrastructure and applied AI. Three open-source projects, and the numbers behind fourteen years at IBM.">
+  <style>
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .sans{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+    .b{font-size:14px;font-weight:700}.xs{font-size:9.5px;letter-spacing:.07em}
+    .num{font-size:21px;font-weight:700}.cap{font-size:10px;font-weight:700;letter-spacing:.2em}
+    @keyframes rise{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+    @keyframes ping{0%,100%{opacity:.3;r:3.6}50%{opacity:1;r:5.6}}
+    @keyframes grow{0%{transform:scaleX(.06);opacity:.3}60%,100%{transform:scaleX(1);opacity:.85}}
+    @keyframes glow{0%,100%{opacity:.18}50%{opacity:.4}}
+    @keyframes fade{0%{opacity:0;transform:translateY(5px)}100%{opacity:1;transform:translateY(0)}}
+    .card{animation:rise 5s ease-in-out infinite}.c1{animation-delay:.45s}.c2{animation-delay:.9s}
+    .ping{animation:ping 2.2s ease-in-out infinite}
+    .bar{animation:grow 3.6s ease-in-out infinite;transform-origin:left center}
+    .c1 .bar{animation-delay:.4s}.c2 .bar{animation-delay:.8s}
+    .glow{animation:glow 4.4s ease-in-out infinite}
+    .stat{animation:fade .7s ease-out both}
+    .s1{animation-delay:.15s}.s2{animation-delay:.3s}.s3{animation-delay:.45s}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+  <defs><radialGradient id="g-dark">
+    <stop offset="0%" stop-color="#3b82f6" stop-opacity=".34"/>
+    <stop offset="60%" stop-color="#3b82f6" stop-opacity=".10"/>
+    <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/></radialGradient></defs>
+  <rect width="880" height="300" rx="18" fill="#0b1020"/>
+  <circle class="glow" cx="440" cy="60" r="230" fill="url(#g-dark)"/>
+  <text x="24" y="36" class="mono cap" fill="#93a4c8">SANDEEP BAZAR · PLATFORM INFRASTRUCTURE &amp; APPLIED AI</text>
+  <text x="24" y="72" class="sans" font-size="24" font-weight="700" fill="#e8ecf8">I build the teams that build</text>
+  <text x="24" y="98" class="sans" font-size="24" font-weight="700" fill="#3b82f6">infrastructure people trust.</text>
+  
+    <g class="card c0">
+      <rect x="24" y="112" width="262" height="86" rx="13" fill="#121a30" stroke="#243154"/>
+      <circle cx="46" cy="140" r="12" fill="#a78bfa" opacity=".18"/>
+      <circle class="ping" cx="46" cy="140" r="4.5" fill="#a78bfa"/>
+      <text x="68" y="145" class="sans b" fill="#e8ecf8">lazy-senior-dev</text>
+      <text x="40" y="172" class="mono xs" fill="#93a4c8">three reviewers, in the agent</text>
+      <rect class="bar" x="40" y="184" width="230" height="3" rx="2" fill="#a78bfa" opacity=".55"/>
+    </g>
+    <g class="card c1">
+      <rect x="302" y="112" width="262" height="86" rx="13" fill="#121a30" stroke="#243154"/>
+      <circle cx="324" cy="140" r="12" fill="#38bdf8" opacity=".18"/>
+      <circle class="ping" cx="324" cy="140" r="4.5" fill="#38bdf8"/>
+      <text x="346" y="145" class="sans b" fill="#e8ecf8">ocm-mcp-server</text>
+      <text x="318" y="172" class="mono xs" fill="#93a4c8">guardrailed AgentOps, K8s</text>
+      <rect class="bar" x="318" y="184" width="230" height="3" rx="2" fill="#38bdf8" opacity=".55"/>
+    </g>
+    <g class="card c2">
+      <rect x="580" y="112" width="262" height="86" rx="13" fill="#121a30" stroke="#243154"/>
+      <circle cx="602" cy="140" r="12" fill="#f59e0b" opacity=".18"/>
+      <circle class="ping" cx="602" cy="140" r="4.5" fill="#f59e0b"/>
+      <text x="624" y="145" class="sans b" fill="#e8ecf8">blogs</text>
+      <text x="596" y="172" class="mono xs" fill="#93a4c8">measured, then written</text>
+      <rect class="bar" x="596" y="184" width="230" height="3" rx="2" fill="#f59e0b" opacity=".55"/>
+    </g>
+  <line x1="24" y1="218" x2="856" y2="218" stroke="#243154"/>
+  
+    <g class="stat s0">
+      <text x="40" y="252" class="mono num" fill="#e8ecf8">14</text>
+      <text x="78" y="252" class="mono xs" fill="#93a4c8">years</text>
+    </g>
+    <g class="stat s1">
+      <text x="252" y="252" class="mono num" fill="#e8ecf8">6</text>
+      <text x="275" y="252" class="mono xs" fill="#93a4c8">US patents</text>
+    </g>
+    <g class="stat s2">
+      <text x="464" y="252" class="mono num" fill="#e8ecf8">100+</text>
+      <text x="532" y="252" class="mono xs" fill="#93a4c8">engineers</text>
+    </g>
+    <g class="stat s3">
+      <text x="676" y="252" class="mono num" fill="#e8ecf8">300</text>
+      <text x="729" y="252" class="mono xs" fill="#93a4c8">km, one stage</text>
+    </g>
+  <text x="24" y="282" class="mono xs" fill="#93a4c8">OPEN SOURCE · APACHE-2.0 · EVERY CLAIM MEASURED AND PUBLISHED</text>
+</svg>

@@ -106,6 +106,9 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
 .hero{padding-block:clamp(44px,7vw,78px) clamp(30px,4vw,44px)}
 .hero-grid{display:grid;grid-template-columns:1fr auto;gap:clamp(24px,4vw,52px);align-items:start}
 @media(max-width:760px){.hero-grid{grid-template-columns:1fr}}
+/* The art has an intrinsic 880px width; without this it forces the page wider than a phone. */
+.hero-art{display:block;width:100%;max-width:880px;height:auto;margin:clamp(20px,3vw,30px) auto}
+.hero-art img{display:block;width:100%;height:auto;border-radius:16px}
 h1{
   font-family:var(--display);font-weight:700;
   font-size:clamp(2.15rem,6.2vw,3.9rem);line-height:1.03;letter-spacing:-.02em;
@@ -416,6 +419,12 @@ a.card:hover .go{transform:translateX(4px)}
     </div>
     <img class="portrait" src="assets/profile.jpg" alt="Sandeep Bazar" width="196" height="196">
   </div>
+
+
+  <picture class="hero-art">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/hero/hero-dark.svg">
+    <img src="assets/hero/hero-light.svg" alt="Sandeep Bazar: platform infrastructure and applied AI. Three open-source projects, and the numbers behind fourteen years at IBM." width="880" loading="eager">
+  </picture>
 
   <dl class="stats">
     <div class="stat"><dt>Full-time at IBM</dt><dd>14<span>years</span></dd></div>
