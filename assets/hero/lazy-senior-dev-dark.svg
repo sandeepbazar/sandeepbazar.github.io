@@ -37,7 +37,7 @@
       <circle class="ping" cx="22" cy="0" r="4" fill="#a78bfa"/>
     </g></g>
   <text x="116" y="46" class="sans" font-size="17" font-weight="700" fill="#e8ecf8">lazy-senior-dev</text>
-  <text x="116" y="66" class="mono xs" fill="#93a4c8">OPEN SOURCE · APACHE-2.0</text>
+  <text x="116" y="66" class="mono xs" fill="#93a4c8">REVIEWS THE CHANGE BEFORE IT LANDS</text>
   
     <g class="chip c0">
       <rect x="116" y="86" width="160" height="26" rx="8" fill="#121a30" stroke="#243154"/>

@@ -39,7 +39,7 @@
       <circle r="26" fill="none" stroke="#22c55e" stroke-width="1.6" opacity=".4" stroke-dasharray="4 6"/>
     </g></g>
   <text x="116" y="46" class="sans" font-size="17" font-weight="700" fill="#0f1729">ibm-fusion-mcp-server</text>
-  <text x="116" y="66" class="mono xs" fill="#5a6b8c">OPEN SOURCE · APACHE-2.0</text>
+  <text x="116" y="66" class="mono xs" fill="#5a6b8c">FLEET OPERATIONS FOR IBM FUSION</text>
   
     <g class="chip c0">
       <rect x="116" y="86" width="160" height="26" rx="8" fill="#ffffff" stroke="#dfe6f5"/>

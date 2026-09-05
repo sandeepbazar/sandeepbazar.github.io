@@ -103,7 +103,7 @@ def hero(name: str) -> str:
   {cards}
   <line x1="24" y1="218" x2="856" y2="218" stroke="{t['edge']}"/>
   {stats}
-  <text x="24" y="282" class="mono xs" fill="{t['dim']}">OPEN SOURCE · APACHE-2.0 · EVERY CLAIM MEASURED AND PUBLISHED</text>
+  <text x="24" y="282" class="mono xs" fill="{t['dim']}">EVERY CLAIM MEASURED AND PUBLISHED</text>
 </svg>'''
 
 
@@ -142,18 +142,19 @@ def star_button(name: str) -> str:
 # One compact strip per project, drawn to say what the thing is rather than to decorate the card.
 # Each carries three short facts; keep them under about twenty characters, because the monospace
 # fallback is wider per glyph than the metric families and a long line runs off the panel.
-# The second line states each project's own terms. A blanket "Apache-2.0" was wrong for two of
-# these: the writing carries no licence file, and the course is MIT code with CC BY-NC-SA content.
+# The second line says what the thing is, never what it is licensed as. A licence stated in a
+# drawing has to be redrawn to stay true, and a stale one is a false claim; the repository is where
+# that lives.
 STRIPS = {
     "blogs": ("Writing", AMBER, "page", "LONG-FORM NOTES · NO TRACKER",
               ["markdown in", "static site out", "no database"]),
-    "lazy-senior-dev": ("lazy-senior-dev", VIOLET, "gate", "OPEN SOURCE · APACHE-2.0",
+    "lazy-senior-dev": ("lazy-senior-dev", VIOLET, "gate", "REVIEWS THE CHANGE BEFORE IT LANDS",
                         ["3 personas", "14 agents", "every claim measured"]),
-    "ocm-mcp-server": ("ocm-mcp-server", CYAN, "shield", "OPEN SOURCE · APACHE-2.0",
+    "ocm-mcp-server": ("ocm-mcp-server", CYAN, "shield", "AGENTOPS FOR KUBERNETES FLEETS",
                        ["reads free", "writes signed", "all traced"]),
-    "ai-roadmap-365": ("365 Days of AI Mastery", BLUE, "ring", "MIT CODE · CC BY-NC-SA CONTENT",
+    "ai-roadmap-365": ("365 Days of AI Mastery", BLUE, "ring", "ONE LESSON AND ONE LAB A DAY",
                        ["9 courses", "365 labs", "real output"]),
-    "ibm-fusion-mcp-server": ("ibm-fusion-mcp-server", GREEN, "fleet", "OPEN SOURCE · APACHE-2.0",
+    "ibm-fusion-mcp-server": ("ibm-fusion-mcp-server", GREEN, "fleet", "FLEET OPERATIONS FOR IBM FUSION",
                               ["fleet ops", "data resilience", "MCP"]),
 }
 

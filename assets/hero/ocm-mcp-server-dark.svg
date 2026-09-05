@@ -40,7 +40,7 @@
       <rect x="-8.5" y="2" width="17" height="12" rx="3" fill="#e8ecf8" opacity=".85"/>
     </g></g>
   <text x="116" y="46" class="sans" font-size="17" font-weight="700" fill="#e8ecf8">ocm-mcp-server</text>
-  <text x="116" y="66" class="mono xs" fill="#93a4c8">OPEN SOURCE · APACHE-2.0</text>
+  <text x="116" y="66" class="mono xs" fill="#93a4c8">AGENTOPS FOR KUBERNETES FLEETS</text>
   
     <g class="chip c0">
       <rect x="116" y="86" width="160" height="26" rx="8" fill="#121a30" stroke="#243154"/>
