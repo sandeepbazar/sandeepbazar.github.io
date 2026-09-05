@@ -107,8 +107,11 @@ a:hover{text-decoration:underline;text-underline-offset:3px}
 .hero-grid{display:grid;grid-template-columns:1fr auto;gap:clamp(24px,4vw,52px);align-items:start}
 @media(max-width:760px){.hero-grid{grid-template-columns:1fr}}
 /* The art has an intrinsic 880px width; without this it forces the page wider than a phone. */
-.hero-art{display:block;width:100%;max-width:880px;height:auto;margin:clamp(20px,3vw,30px) auto}
-.hero-art img{display:block;width:100%;height:auto;border-radius:16px}
+/* Card art is decorative: the words beside it carry the meaning, so it is hidden from a screen
+   reader rather than described twice. */
+.card-art{display:block;margin:-4px -4px 14px}
+.card-art img{display:block;width:100%;height:auto;border-radius:11px}
+.card-links{display:flex;flex-wrap:wrap;gap:.35rem 1.1rem;margin-top:.7rem}
 h1{
   font-family:var(--display);font-weight:700;
   font-size:clamp(2.15rem,6.2vw,3.9rem);line-height:1.03;letter-spacing:-.02em;
@@ -421,10 +424,6 @@ a.card:hover .go{transform:translateX(4px)}
   </div>
 
 
-  <picture class="hero-art">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/hero/hero-dark.svg">
-    <img src="assets/hero/hero-light.svg" alt="Sandeep Bazar: platform infrastructure and applied AI. Three open-source projects, and the numbers behind fourteen years at IBM." width="880" loading="eager">
-  </picture>
 
   <dl class="stats">
     <div class="stat"><dt>Full-time at IBM</dt><dd>14<span>years</span></dd></div>
@@ -511,36 +510,36 @@ a.card:hover .go{transform:translateX(4px)}
   <h2 class="sec-title">Things I'm making outside work</h2>
   <p class="sec-lead">Open source and long-form writing, mostly at the seam between AI and infrastructure: where agents meet production systems, and how to teach the whole stack.</p>
   <div class="cards">
-    <a class="card" href="https://sandeepbazar.github.io/blogs/">
-      <h3>Writing</h3>
+    <article class="card">
+      <picture class="card-art"><source media="(prefers-color-scheme: dark)" srcset="assets/hero/blogs-dark.svg"><img src="assets/hero/blogs-light.svg" alt="" aria-hidden="true" width="640" loading="lazy"></picture><h3>Writing</h3>
       <p>Long-form notes on platform engineering, storage and leading engineers. Markdown in, static site out. No CMS, no database, no tracker.</p>
       <div class="tags"><span class="tag">Essays</span></div>
-      <span class="go">Read the posts →</span>
-    </a>
-    <a class="card" href="https://lazy-senior-dev.github.io/">
-      <h3>lazy-senior-dev</h3>
+    <div class="card-links"><a class="go" href="https://sandeepbazar.github.io/blogs/">Read the posts →</a><a class="go" href="https://github.com/sandeepbazar/blogs">Source on GitHub →</a></div>
+    </article>
+    <article class="card">
+      <picture class="card-art"><source media="(prefers-color-scheme: dark)" srcset="assets/hero/lazy-senior-dev-dark.svg"><img src="assets/hero/lazy-senior-dev-light.svg" alt="" aria-hidden="true" width="640" loading="lazy"></picture><h3>lazy-senior-dev</h3>
       <p>The senior engineers your AI agent can be. Three persona plugins that review the change an agent is about to write and refuse the write until it is right: a staff reviewer, an on-call SRE, and the engineer who remembers the postmortem. One ruleset renders to fourteen agents, an MCP server and a GitHub Action, and every claim is backed by a benchmark you can rerun.</p>
       <div class="tags"><span class="tag">Agents</span><span class="tag">Code review</span><span class="tag">MCP</span></div>
-      <span class="go">Meet the cast →</span>
-    </a>
-    <a class="card" href="https://ocm-mcp-server.github.io/">
-      <h3>ocm-mcp-server</h3>
+    <div class="card-links"><a class="go" href="https://lazy-senior-dev.github.io/">Meet the cast →</a><a class="go" href="https://github.com/lazy-senior-dev">Source on GitHub →</a></div>
+    </article>
+    <article class="card">
+      <picture class="card-art"><source media="(prefers-color-scheme: dark)" srcset="assets/hero/ocm-mcp-server-dark.svg"><img src="assets/hero/ocm-mcp-server-light.svg" alt="" aria-hidden="true" width="640" loading="lazy"></picture><h3>ocm-mcp-server</h3>
       <p>AgentOps for Kubernetes fleets, done safely. Lets AI agents operate a multi-cluster fleet through an Open Cluster Management hub. The agent never holds a kubeconfig, and every write is policy-checked, approved and traced.</p>
-      <div class="tags"><span class="tag">Go</span><span class="tag">MCP</span><span class="tag">Kubernetes</span></div>
-      <span class="go">Read the docs →</span>
-    </a>
-    <a class="card" href="https://ai-roadmap-365.github.io/">
-      <h3>365 Days of AI Mastery</h3>
+      <div class="tags"><span class="tag">Python</span><span class="tag">MCP</span><span class="tag">Kubernetes</span></div>
+    <div class="card-links"><a class="go" href="https://ocm-mcp-server.github.io/">Read the docs →</a><a class="go" href="https://github.com/ocm-mcp-server/ocm-mcp-server">Source on GitHub →</a></div>
+    </article>
+    <article class="card">
+      <picture class="card-art"><source media="(prefers-color-scheme: dark)" srcset="assets/hero/ai-roadmap-365-dark.svg"><img src="assets/hero/ai-roadmap-365-light.svg" alt="" aria-hidden="true" width="640" loading="lazy"></picture><h3>365 Days of AI Mastery</h3>
       <p>From how a computer works to designing, evaluating, securing and deploying production AI systems. Nine standalone courses, one lesson and one lab a day for a year. 141 of 365 published so far, every output captured from a real execution.</p>
       <div class="tags"><span class="tag">Curriculum</span><span class="tag">MDX</span><span class="tag">AI</span></div>
-      <span class="go">Start the course →</span>
-    </a>
-    <a class="card" href="https://github.com/sandeepbazar/ibm-fusion-mcp-server">
-      <h3>ibm-fusion-mcp-server</h3>
+    <div class="card-links"><a class="go" href="https://ai-roadmap-365.github.io/">Start the course →</a><a class="go" href="https://github.com/ai-roadmap-365/ai-roadmap-365">Source on GitHub →</a></div>
+    </article>
+    <article class="card">
+      <picture class="card-art"><source media="(prefers-color-scheme: dark)" srcset="assets/hero/ibm-fusion-mcp-server-dark.svg"><img src="assets/hero/ibm-fusion-mcp-server-light.svg" alt="" aria-hidden="true" width="640" loading="lazy"></picture><h3>ibm-fusion-mcp-server</h3>
       <p>Model Context Protocol server for IBM Fusion, bringing fleet and data-resilience operations into reach of AI agents.</p>
       <div class="tags"><span class="tag">MCP</span><span class="tag">Fusion</span></div>
-      <span class="go">View on GitHub →</span>
-    </a>
+    <div class="card-links"><a class="go" href="https://github.com/sandeepbazar/ibm-fusion-mcp-server">View on GitHub →</a></div>
+    </article>
   </div>
 </section>
 

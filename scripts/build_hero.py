@@ -139,13 +139,124 @@ def star_button(name: str) -> str:
 </svg>'''
 
 
+# One compact strip per project, drawn to say what the thing is rather than to decorate the card.
+# Each carries three short facts; keep them under about twenty characters, because the monospace
+# fallback is wider per glyph than the metric families and a long line runs off the panel.
+# The second line states each project's own terms. A blanket "Apache-2.0" was wrong for two of
+# these: the writing carries no licence file, and the course is MIT code with CC BY-NC-SA content.
+STRIPS = {
+    "blogs": ("Writing", AMBER, "page", "LONG-FORM NOTES · NO TRACKER",
+              ["markdown in", "static site out", "no database"]),
+    "lazy-senior-dev": ("lazy-senior-dev", VIOLET, "gate", "OPEN SOURCE · APACHE-2.0",
+                        ["3 personas", "14 agents", "every claim measured"]),
+    "ocm-mcp-server": ("ocm-mcp-server", CYAN, "shield", "OPEN SOURCE · APACHE-2.0",
+                       ["reads free", "writes signed", "all traced"]),
+    "ai-roadmap-365": ("365 Days of AI Mastery", BLUE, "ring", "MIT CODE · CC BY-NC-SA CONTENT",
+                       ["9 courses", "365 labs", "real output"]),
+    "ibm-fusion-mcp-server": ("ibm-fusion-mcp-server", GREEN, "fleet", "OPEN SOURCE · APACHE-2.0",
+                              ["fleet ops", "data resilience", "MCP"]),
+}
+
+
+def motif(kind: str, col: str, t: dict[str, str]) -> str:
+    if kind == "page":
+        return f"""<g class="bob">
+      <rect x="-22" y="-26" width="44" height="52" rx="5" fill="{col}" fill-opacity=".14" stroke="{col}" stroke-width="2"/>
+      <g stroke="{col}" stroke-width="2.4" stroke-linecap="round" opacity=".8">
+        <path class="ln l0" d="M-13 -13 h26"/><path class="ln l1" d="M-13 -4 h26"/>
+        <path class="ln l2" d="M-13 5 h20"/><path class="ln l3" d="M-13 14 h14"/>
+      </g>
+      <rect class="caret" x="6" y="9" width="2.4" height="11" fill="{col}"/>
+    </g>"""
+    if kind == "gate":
+        return f"""<g class="bob">
+      <rect x="-26" y="-20" width="30" height="40" rx="5" fill="{col}" fill-opacity=".14" stroke="{col}" stroke-width="2"/>
+      <path class="bar-l" d="M10 -22 v44" stroke="{col}" stroke-width="4" stroke-linecap="round"/>
+      <circle class="ping" cx="22" cy="0" r="4" fill="{col}"/>
+    </g>"""
+    if kind == "shield":
+        return f"""<g class="bob">
+      <circle class="ring" r="26" fill="none" stroke="{col}" stroke-width="2"/>
+      <path d="M0 -26 L23 -17 V3 C23 17 12 24 0 29 C-12 24 -23 17 -23 3 V-17 Z" fill="{col}"
+            fill-opacity=".16" stroke="{col}" stroke-width="2.2" stroke-linejoin="round"/>
+      <g class="shackle"><path d="M-7 2 v-5 a7 7 0 0 1 14 0 v5" fill="none" stroke="{t['ink']}"
+         stroke-width="2.2" stroke-linecap="round" opacity=".85"/></g>
+      <rect x="-8.5" y="2" width="17" height="12" rx="3" fill="{t['ink']}" opacity=".85"/>
+    </g>"""
+    if kind == "ring":
+        return f"""<g class="bob">
+      <circle r="24" fill="none" stroke="{t['edge']}" stroke-width="6"/>
+      <circle class="arc" r="24" fill="none" stroke="{col}" stroke-width="6" stroke-linecap="round"
+              stroke-dasharray="150.8" transform="rotate(-90)"/>
+      <text y="5" text-anchor="middle" class="mono" font-size="14" font-weight="700" fill="{t['ink']}">365</text>
+    </g>"""
+    return f"""<g class="bob">
+      <circle r="7" fill="{col}"/>
+      <g class="sp"><circle cx="26" cy="0" r="5" fill="{col}" opacity=".85"/>
+        <circle cx="-13" cy="22" r="5" fill="{col}" opacity=".6"/>
+        <circle cx="-13" cy="-22" r="5" fill="{col}" opacity=".45"/></g>
+      <circle r="26" fill="none" stroke="{col}" stroke-width="1.6" opacity=".4" stroke-dasharray="4 6"/>
+    </g>"""
+
+
+def project_strip(key: str, theme_name: str) -> str:
+    title, col, kind, subtitle, facts = STRIPS[key]
+    t, w, h = THEMES[theme_name], 640, 132
+    chips = "".join(f"""
+    <g class="chip c{i}">
+      <rect x="{116 + i * 172}" y="86" width="160" height="26" rx="8" fill="{t['panel']}" stroke="{t['edge']}"/>
+      <circle cx="{132 + i * 172}" cy="99" r="3.6" fill="{col}"/>
+      <text x="{144 + i * 172}" y="103" class="mono xs" fill="{t['dim']}">{f}</text>
+    </g>""" for i, f in enumerate(facts))
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" role="img" aria-label="{title}">
+  <style>
+    .mono{{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}}
+    .sans{{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}}
+    .xs{{font-size:9.5px;letter-spacing:.05em}}
+    @keyframes bob{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-3px)}}}}
+    @keyframes ping{{0%,100%{{opacity:.3;r:3.4}}50%{{opacity:1;r:5.2}}}}
+    @keyframes ring{{0%{{opacity:.6;transform:scale(.76)}}70%,100%{{opacity:0;transform:scale(1.22)}}}}
+    @keyframes shut{{0%,42%{{transform:translateY(-6px)}}54%,100%{{transform:translateY(0)}}}}
+    @keyframes arc{{from{{stroke-dashoffset:150.8}}to{{stroke-dashoffset:0}}}}
+    @keyframes spin{{to{{transform:rotate(360deg)}}}}
+    @keyframes caret{{0%,45%{{opacity:1}}55%,100%{{opacity:0}}}}
+    @keyframes draw{{from{{opacity:0;transform:translateX(-5px)}}to{{opacity:.8;transform:translateX(0)}}}}
+    @keyframes fade{{0%,100%{{opacity:.45}}50%{{opacity:1}}}}
+    @keyframes glow{{0%,100%{{opacity:.16}}50%{{opacity:.34}}}}
+    .bob{{animation:bob 3.6s ease-in-out infinite}}
+    .ping{{animation:ping 2s ease-in-out infinite}}
+    .ring{{animation:ring 2.8s ease-out infinite;transform-origin:0 0}}
+    .shackle{{animation:shut 4.2s ease-in-out infinite}}
+    .arc{{animation:arc 2.6s cubic-bezier(.22,.9,.3,1) both}}
+    .sp{{animation:spin 12s linear infinite;transform-origin:0 0}}
+    .caret{{animation:caret 1.1s step-end infinite}}
+    .ln{{animation:draw .7s ease-out both}}
+    .l1{{animation-delay:.12s}}.l2{{animation-delay:.24s}}.l3{{animation-delay:.36s}}
+    .chip{{animation:fade 4.2s ease-in-out infinite}}.c1{{animation-delay:1.4s}}.c2{{animation-delay:2.8s}}
+    .glow{{animation:glow 4.4s ease-in-out infinite}}
+    @media (prefers-reduced-motion:reduce){{*{{animation:none!important}}.arc{{stroke-dashoffset:0}}.ln{{opacity:.8}}}}
+  </style>
+  <defs><radialGradient id="s-{key}-{theme_name}">
+    <stop offset="0%" stop-color="{col}" stop-opacity=".34"/>
+    <stop offset="100%" stop-color="{col}" stop-opacity="0"/></radialGradient></defs>
+  <rect width="{w}" height="{h}" rx="14" fill="{t['bg']}"/>
+  <circle class="glow" cx="58" cy="52" r="76" fill="url(#s-{key}-{theme_name})"/>
+  <g transform="translate(58 52)">{motif(kind, col, t)}</g>
+  <text x="116" y="46" class="sans" font-size="17" font-weight="700" fill="{t['ink']}">{title}</text>
+  <text x="116" y="66" class="mono xs" fill="{t['dim']}">{subtitle}</text>
+  {chips}
+</svg>"""
+
+
 def main() -> None:
     out = pathlib.Path(__file__).resolve().parent.parent / "assets" / "hero"
     out.mkdir(parents=True, exist_ok=True)
     for name in THEMES:
         (out / f"hero-{name}.svg").write_text(hero(name), encoding="utf-8")
         (out / f"star-{name}.svg").write_text(star_button(name), encoding="utf-8")
-    print(f"wrote {2 * len(THEMES)} animated files -> assets/hero")
+        for key in STRIPS:
+            (out / f"{key}-{name}.svg").write_text(project_strip(key, name), encoding="utf-8")
+    print(f"wrote {(2 + len(STRIPS)) * len(THEMES)} animated files -> assets/hero")
 
 
 if __name__ == "__main__":
