@@ -18,7 +18,7 @@ to Pages on every push to `main`.
 | `/About/` | `About` | Redirects here. Kept so older links and printed resumes still resolve. |
 | `/blogs/` | `blogs` | Long-form writing |
 | `/ocm-mcp-server/` | `ocm-mcp-server` | Project documentation |
-| `/ai-roadmap-365/` | `ai-roadmap-365` | The curriculum |
+| `/ai-roadmap-365/` | `sandeepbazar.github.io` | A redirect stub to <https://ai-roadmap-365.github.io/>, kept so older links resolve |
 
 Each row is a separate repository and a separate Pages deployment. They cannot share one
 navigation bar without duplicating the markup into every repo, so the header nav here uses
